@@ -30,4 +30,4 @@ services:
         fromService:
           name: esg-backend
           type: web
-          property: url
+          property: host

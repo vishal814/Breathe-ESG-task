@@ -6,6 +6,9 @@ import {
 } from 'lucide-react';
 
 let apiBase = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+if (apiBase && !apiBase.startsWith('http://') && !apiBase.startsWith('https://')) {
+  apiBase = `https://${apiBase}`;
+}
 if (apiBase && !apiBase.endsWith('/api') && !apiBase.endsWith('/api/')) {
   apiBase = `${apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase}/api`;
 }

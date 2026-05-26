@@ -1,5 +1,5 @@
 services:
-  # Backend Django Service
+  # Backend Django Service (Python Web Service)
   - type: web
     name: esg-backend
     env: python
@@ -17,7 +17,6 @@ services:
   - type: web
     name: esg-frontend
     runtime: static
-    plan: free
     rootDir: frontend
     buildCommand: "npm run build"
     staticPublishPath: dist
@@ -27,7 +26,4 @@ services:
         destination: "/index.html"
     envVars:
       - key: VITE_API_URL
-        fromService:
-          name: esg-backend
-          type: web
-          property: host
+        value: "https://esg-backend.onrender.com"

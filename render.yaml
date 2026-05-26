@@ -26,4 +26,4 @@ services:
         destination: "/index.html"
     envVars:
       - key: VITE_API_URL
-        value: "https://esg-backend.onrender.com"
+        value: "https://esg-backend-es0f.onrender.com"

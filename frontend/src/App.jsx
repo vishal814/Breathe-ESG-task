@@ -5,7 +5,11 @@ import {
   Terminal, RefreshCw, BarChart2, FileText, ArrowRight, Download
 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+let apiBase = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+if (apiBase && !apiBase.endsWith('/api') && !apiBase.endsWith('/api/')) {
+  apiBase = `${apiBase.endsWith('/') ? apiBase.slice(0, -1) : apiBase}/api`;
+}
+const API_BASE = apiBase;
 
 export default function App() {
   const [clients, setClients] = useState([]);
